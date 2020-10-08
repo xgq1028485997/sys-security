@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sys.security.dao.UserResourceOperateMapper">
+
+
+    <select id="findResourceByUser" parameterType="java.lang.String" resultType="com.sys.security.vo.UserResourceOperateVO">
+        select user_id userId, resource_name resourceName, operate_name operateName from tb_user_resource_operate uro
+        left join tb_resource_operate ro on uro.resource_operate_id = ro.resource_operate_id
+        left join tb_resource r on ro.resource_code = r.resource_code
+        left join tb_operate o on ro.operate_code = o.operate_code
+        where user_id = #{userId}
+    </select>
+
+
+
+
+</mapper>

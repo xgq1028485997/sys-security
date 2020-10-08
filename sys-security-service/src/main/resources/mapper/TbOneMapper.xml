@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sys.security.dao.TbOneMapper">
+    <select id="select" parameterType="com.sys.security.vo.TableVO" resultType="com.sys.security.vo.TbOneVO">
+        select num, name, clazz from tb_one
+        where #{primaryKey} = #{primaryKeyValue}
+    </select>
+
+    <select id="selectBySql" resultType="com.sys.security.vo.TbOneVO" parameterType="java.lang.String">
+        select num, name, clazz from tb_one
+        where ${sql}
+    </select>
+</mapper>
